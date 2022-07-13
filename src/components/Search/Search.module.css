@@ -1,0 +1,95 @@
+.search {
+  margin: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  height: 100vh;
+  background: linear-gradient(118.39deg, #FFFFFF -1.16%, #FFFFFF 101.16%);
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.search h1 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  align-items: center;
+
+}
+
+.search p {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #3C3C3C;
+}
+
+.search input {
+  box-sizing: border-box;
+  background: rgba(237, 237, 237, 0.63);
+  border: 1px solid #000000;
+  border-radius: 6px;
+  height: 55px;
+  width: 387px;
+  margin: 10px;
+  padding: 18px 21px 16px;
+
+}
+
+
+/* 
+.search h1 {
+  position: absolute;
+  height: 42px;
+  left: 568px;
+  top: 284px;
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  text-align: left;
+  color: black;
+}
+
+.search p {
+  position: absolute;
+  width: 300px;
+  height: 28px;
+  left: 534px;
+  top: 331px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #3C3C3C;
+}
+
+.submitForm input {
+  position: absolute;
+  width: 387px;
+  height: 55px;
+  left: 362px;
+  top: 397px;
+  
+  background: rgba(237, 237, 237, 0.63);
+  border: 1px solid #000000;
+  border-radius: 6px;
+}
+
+.submitForm button {
+  position: absolute;
+  width: 245.78px;
+  height: 56px;
+  left: 769.78px;
+  top: 396px;
+} */
