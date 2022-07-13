@@ -87,24 +87,6 @@
   margin: 0 21px 33px 0;
 }
 
-.count {
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 42px;
-  color: #2D2C2C;
-  text-align: center;
-}
-
-.spans {
-  font-family: sans-serif;
-  background: rgba(196, 196, 196, 0.35);
-  border-radius: 3px;
-  padding: 7px 32px 8px 32px;
-}
-
-
 .paddingBoxes{
   box-sizing: border-box;
   display: flex;
@@ -136,6 +118,12 @@
   margin: 4px 0;
 }
 
+.bioFont{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
 
 /* .backAndHire h3 {
   border: 2px solid red;

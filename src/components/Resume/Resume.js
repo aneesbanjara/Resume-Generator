@@ -1,6 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios"
+
 import Button from "../Button/Button";
+import Counts from "../Counts/Counts";
+
 import classes from './Resume.module.css'
 
 import imgLogo from './../../assets/backLogo.png'
@@ -10,6 +13,7 @@ import twitterLogo from '../../assets/twitter.png'
 import organizationLogo from '../../assets/business.png'
 import createdAtLogo from '../../assets/joinedDate.png'
 import websiteLogo from '../../assets/website.png'
+import LogoProperties from "../LogoProperties/LogoProperties";
 
 
 const Resume = (props) => {
@@ -42,6 +46,12 @@ const Resume = (props) => {
     })      
   }
 
+  const d = new Date(props.data.joinedDate)
+  const YYYY = d.getFullYear()
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const MM = months[d.getMonth()]
+  const DD = d.getDate()
+
   if(props.data.hireable === true) {
     setIsHirable(true)
   }
@@ -68,9 +78,9 @@ const Resume = (props) => {
             <div className={classes.nameAndFollowers}>
               <h2>{props.data.name}</h2>
               <div className={classes.flexRow}>
-                <div><p className={classes.count}>{followersCount}</p><span className={classes.spans}>Followers</span></div>
-                <div><p className={classes.count}>{followingCount}</p><span className={classes.spans}>Following</span></div>
-                <div><p className={classes.count}>{reposCount}</p><span className={classes.spans}>Repositories</span></div>
+                <Counts countNumber={followersCount} countType='Followers'/>
+                <Counts countNumber={followingCount} countType='Following'/>
+                <Counts countNumber={reposCount} countType='Repositories'/>
               </div>
             </div>
             <div className={classes.emailBioParent} >
@@ -111,7 +121,7 @@ const Resume = (props) => {
                       <img src={createdAtLogo} alt="joined date" />
                       <p className={classes.titleName}>Joined Date</p>
                     </div>
-                    <p className={classes.descriptions}>{props.data.joinedDate}</p>
+                    <p className={classes.descriptions}>{`${DD} ${MM}, ${YYYY}`}</p>
                   </div>
                   <div className={classes.flexColumnOfEmail}>
                     <div className={classes.flexRow}>
@@ -125,7 +135,7 @@ const Resume = (props) => {
             <div className={classes.paddingBoxes}>
               <div>
                 <p className={classes.descriptions}>Bio</p>
-                <p>{props.data.bio}</p>
+                <p className={classes.bioFont}>{props.data.bio}</p>
               </div>
             </div>
             </div>

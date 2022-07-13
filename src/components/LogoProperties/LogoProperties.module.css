@@ -1,0 +1,26 @@
+.flexColumnOfEmail {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  margin: 0 21px 33px 0;
+}
+
+.titleName {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #7E7E7E;
+}
+
+.descriptions{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  min-height: 21px;
+  margin: 4px 0;
+}
