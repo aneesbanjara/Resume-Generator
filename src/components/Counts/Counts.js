@@ -7,7 +7,7 @@ const Counts = (props) => {
     <Fragment>
       <div>
         <p className={classes.count}>{props.countNumber}</p>
-        <span className={classes.spans}>Followers</span>
+        <span className={classes.spans}>{props.countType}</span>
       </div>
     </Fragment>
   );

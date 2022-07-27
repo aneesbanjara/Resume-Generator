@@ -1,66 +1,26 @@
 import { Fragment, useState } from "react";
-import axios from "axios";
-import Search from "./components/Search/Search";
-import Resume from "./components/Resume/Resume";
+import { useDispatch, useSelector} from "react-redux";
+import { fetchUser, backToHome } from "./actions/index";
 
-function App() {
-  const [isUserAvilable, setIsUserAvilable] = useState(false);
-  const [userData, setUserData] = useState({})
-  // const [isAlert, setIsAlert] = useState(false)
+import Search from './components/Search/Search'
+import Resume from './components/Resume/Resume'
 
-  const userFetchHandler = async (username) => {
-    try {
-      const dataResponse = await axios.get(
-        `https://api.github.com/users/${username}`
-      );
-      setIsUserAvilable(true);
-      const {
-        avatar_url,
-        name,
-        email,
-        location,
-        company,
-        twitter_username,
-        blog,
-        bio,
-        followers_url,
-        following_url,
-        repos_url,
-        created_at: joinedDate,
-        hireable
-      } = dataResponse.data;
+const App = () => {
+  const myState = useSelector((state) => state.avilableUserReducer)
+  const dispatch = useDispatch()
 
-      const userData = {
-        avatar_url,
-        name,
-        email,
-        location,
-        company,
-        twitter_username,
-        blog,
-        bio,
-        followers_url,
-        following_url,
-        repos_url,
-        joinedDate,
-        hireable
-      }
-      setUserData(userData);
-    } catch (e) {
-      setIsUserAvilable(false);
-      
+  const SubmittedDataHandler = (enteredUser) => {
+    if (enteredUser.length === 0) {
+      return console.log('Please enter github username.')
     }
-  };
-
-  const returnToHomeHandlar = () =>{
-    setIsUserAvilable(false)
+    dispatch(fetchUser(enteredUser))
   }
 
+  console.log('for mystate',myState)
   return (
     <Fragment>
-      {/* {isAlert && alert('User cannot be found!')} */}
-      {!isUserAvilable && <Search onUserFetch={userFetchHandler} />}
-      {isUserAvilable && <Resume data={userData} onBack={returnToHomeHandlar}/>}
+      {!myState.isUserAvilable && <Search onSubmitData = {SubmittedDataHandler}/>}
+      {myState.isUserAvilable && <Resume data={myState.userData} onBack={() => dispatch(backToHome())}/>}
     </Fragment>
   );
 }

@@ -11,9 +11,9 @@ const Search = (props) => {
     setEnteredUser(e.target.value)
   }
 
-  const onSubmitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault()
-    props.onUserFetch(enteredUser);
+    props.onSubmitData(enteredUser)
   }
 
   return (
@@ -23,7 +23,7 @@ const Search = (props) => {
             <h1>Github Profile</h1>
           <p>Generate your Github Profile.</p>
         </div>
-      <form onSubmit={onSubmitHandler} className={classes.submitForm}>
+      <form onSubmit={submitHandler} className={classes.submitForm}>
         <input type="search" name="search" id="search" placeholder="Github Username" onChange={userHandler} />
         <Button type="submit">Generate</Button>
       </form>
